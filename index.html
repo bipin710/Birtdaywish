@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Happy Birthday 🎂</title>
+  <meta name="description" content="A special interactive birthday greeting with music, name input, emojis, and a 3D + fullscreen photo gallery." />
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/649/649367.png" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- SweetAlert2 & Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">🎀 Happy Birthday</div>
+    <div class="controls">
+      <button id="toggleMusic" class="btn secondary" aria-pressed="false" aria-label="Toggle music">🔇 Mute</button>
+      <button id="toFullscreenBtn" class="btn secondary hidden">🔍 Fullscreen</button>
+    </div>
+  </header>
+
+  <!-- Music -->
+  <audio id="bgMusic" src="image/happy-birthday-368842.mp3" preload="auto" loop></audio>
+  <audio id="galleryMusic" src="image/2mate (mp3cut.net).mp3" preload="auto" loop></audio>
+
+  <!-- Gift Section -->
+  <section id="giftSection" aria-label="Gift section">
+    <img id="giftBox" src="image/box.png" alt="Gift Box" />
+    <img id="giftBox" src="image/openbox.png" alt="Gift Box" />
+    <p id="clickText">Open this gift Box </p>
+    <div class="stickers" aria-hidden="true">
+      <img src="image/birthday (1).png" alt="" />
+      <img src="image/OIF-removebg-preview.png" alt="" />
+      <img src="image/OIP-removebg-preview.png" alt="" />
+    </div>
+  </section>
+
+  <!-- Message + Emojis -->
+  <section id="messageSection" class="hidden" aria-live="polite">
+    <img src="image/doll.png" alt="">
+    <h2 id="typedText"></h2>
+    <p class="subline">Wishing you endless smiles, love & happiness 💖</p>
+    <div class="emojiWrap" id="emojiContainer">
+      <p>Pick  emojis that match your mood 🥰👇</p>
+      <span class="emoji">😍</span>
+      <span class="emoji">🥳</span>
+      <span class="emoji">💖</span>
+      <span class="emoji">🌸</span>
+    </div>
+  </section>
+
+  <!-- 3D Carousel Gallery -->
+  <section id="gallerySection" class="gallery-section" aria-label="3D photo gallery">
+    <div class="gallery">
+      <img src="image/photo (1).jpg" alt="Photo 1" />
+      <img src="image/photo (2).JPG" alt="Photo 2" />
+      <img src="image/photo (3).JPG" alt="Photo 3" />
+      <img src="image/photo (4).JPG" alt="Photo 4" />
+      <img src="image/photo (5).JPG" alt="Photo 5" />
+      <img src="image/photo (6).JPG" alt="Photo 6" />
+      <img src="image/photo (7).JPG" alt="Photo 6" />
+      <img src="image/photo (8).JPG" alt="Photo 6" />
+    </div>
+    <h3 class="sectionTitle">🎉 Happy Birthday  🎉</h3>
+  </section>
+
+  <!-- Fullscreen Gallery -->
+  <section id="fullscreen" class="fullscreen" aria-label="Fullscreen photo gallery">
+    <div class="fs-top">
+      <div>🎉 Memories Gallery</div>
+      <button id="closeFs" class="btn">Close</button>
+    </div>
+    <div class="fs-grid" id="fsGrid">
+      <img src="image/photo (1).jpg" alt="Photo 1" />
+      <img src="image/photo (2).JPG" alt="Photo 2" />
+      <img src="image/photo (3).JPG" alt="Photo 3" />
+      <img src="image/photo (4).JPG" alt="Photo 4" />
+      <img src="image/photo (5).JPG" alt="Photo 5" />
+      <img src="image/photo (6).JPG" alt="Photo 6" />
+      <img src="image/photo (7).JPG" alt="Photo 7" />
+      <img src="image/photo (8).JPG" alt="Photo 8" />
+    </div>
+  </section>
+
+  <footer>
+    Made with 💕 for your special day.
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
