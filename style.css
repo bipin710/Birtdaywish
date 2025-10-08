@@ -6,20 +6,26 @@
   --ink: #442a35;
 }
 
+/* Global Reset */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 html,
 body {
   height: 100%;
+  scroll-behavior: smooth;
 }
+
 body {
-  margin: 0;
   font-family: "Dancing Script", cursive;
   color: var(--ink);
   text-align: center;
   background: linear-gradient(135deg, var(--pink-1), var(--pink-2));
   overflow-x: hidden;
+  line-height: 1.5;
 }
 
 /* Header */
@@ -31,13 +37,13 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 10px 14px;
+  padding: 10px 18px;
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 .brand {
-  font-size: 24px;
+  font-size: clamp(20px, 4vw, 28px);
   color: var(--pink-4);
   letter-spacing: 1px;
 }
@@ -48,10 +54,10 @@ header {
 }
 .btn {
   font-family: inherit;
-  font-size: 16px;
-  padding: 8px 14px;
+  font-size: clamp(14px, 2.5vw, 18px);
+  padding: 8px 16px;
   border-radius: 999px;
-  border: 0;
+  border: none;
   cursor: pointer;
   background: var(--pink-3);
   color: white;
@@ -71,11 +77,10 @@ header {
 
 /* Gift Section */
 #giftSection {
-  padding: 40px 16px 0;
+  padding: clamp(24px, 6vw, 48px) 16px 0;
 }
 #giftBox {
-  width: 220px;
-  max-width: 60vw;
+  width: clamp(160px, 40vw, 260px);
   cursor: pointer;
   transition: transform 0.35s ease;
 }
@@ -83,7 +88,7 @@ header {
   transform: scale(1.06) rotate(-2deg);
 }
 #clickText {
-  font-size: 22px;
+  font-size: clamp(18px, 4vw, 24px);
   color: var(--pink-4);
   margin: 14px 0 10px;
 }
@@ -97,8 +102,8 @@ header {
   flex-wrap: wrap;
 }
 .stickers img {
-  width: 92px;
-  height: 92px;
+  width: clamp(70px, 20vw, 110px);
+  height: clamp(70px, 20vw, 110px);
   object-fit: cover;
   border-radius: 14px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
@@ -106,13 +111,13 @@ header {
 
 /* Typing */
 #typedText {
-  font-size: clamp(24px, 6vw, 40px);
+  font-size: clamp(22px, 6vw, 42px);
   color: var(--pink-4);
   margin: 14px 12px 10px;
   min-height: 1.4em;
 }
 .subline {
-  font-size: 20px;
+  font-size: clamp(16px, 3vw, 22px);
   color: #444;
   margin-bottom: 4px;
 }
@@ -122,11 +127,11 @@ header {
   margin-top: 20px;
 }
 .emojiWrap p {
-  font-size: 20px;
+  font-size: clamp(16px, 3vw, 22px);
   margin-bottom: 8px;
 }
 .emoji {
-  font-size: 32px;
+  font-size: clamp(24px, 6vw, 36px);
   margin: 8px;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease;
@@ -141,11 +146,11 @@ header {
   display: none;
   margin: 44px auto;
   perspective: 1000px;
-  max-width: 760px;
+  max-width: 90%;
 }
 .gallery {
-  width: 260px;
-  height: 260px;
+  width: clamp(200px, 50vw, 280px);
+  height: clamp(200px, 50vw, 280px);
   margin: 0 auto;
   position: relative;
   transform-style: preserve-3d;
@@ -153,8 +158,8 @@ header {
 }
 .gallery img {
   position: absolute;
-  width: 210px;
-  height: 250px;
+  width: 80%;
+  height: 80%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -191,7 +196,7 @@ header {
 .sectionTitle {
   margin-top: 18px;
   color: #d63384;
-  font-size: 26px;
+  font-size: clamp(20px, 4vw, 28px);
 }
 
 /* Fullscreen Gallery */
@@ -255,7 +260,7 @@ header {
 footer {
   padding: 24px 12px 40px;
   color: rgba(0, 0, 0, 0.6);
-  font-size: 16px;
+  font-size: clamp(14px, 2.5vw, 18px);
 }
 
 /* Utility */
@@ -263,18 +268,44 @@ footer {
   display: none !important;
 }
 
-/* Responsive */
-@media (max-width: 520px) {
-  .stickers img {
-    width: 82px;
-    height: 82px;
+/* Responsive Breakpoints */
+
+/* Small Phones (under 400px) */
+@media (max-width: 400px) {
+  header {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .controls {
+    flex-wrap: wrap;
   }
   .gallery {
-    width: 230px;
-    height: 230px;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Tablets (600–900px) */
+@media (min-width: 600px) and (max-width: 900px) {
+  header {
+    padding: 14px 24px;
+  }
+  .gallery {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+/* Large Desktops (above 1200px) */
+@media (min-width: 1200px) {
+  body {
+    font-size: 18px;
   }
   .gallery img {
-    width: 190px;
-    height: 220px;
+    width: 220px;
+    height: 260px;
+  }
+  .fs-grid img {
+    height: 340px;
   }
 }

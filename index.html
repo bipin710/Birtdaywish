@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Happy Birthday 🎂</title>
+  <title>Will You Be Mine? 💍❤️</title>
   <meta name="description" content="A special interactive birthday greeting with music, name input, emojis, and a 3D + fullscreen photo gallery." />
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/649/649367.png" />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <!-- SweetAlert2 & Typed.js -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -17,10 +17,29 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    h1, h2, h3, .brand, .sectionTitle {
+      font-family: 'Great Vibes', cursive;
+      letter-spacing: 1px;
+    }
+    .brand {
+      font-size: 2rem;
+    }
+    .sectionTitle {
+      font-size: 2.2rem;
+    }
+    footer p {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="brand">🎀 Happy Birthday</div>
+    <div class="brand">💖 Love Proposal 💖</div>
     <div class="controls">
       <button id="toggleMusic" class="btn secondary" aria-pressed="false" aria-label="Toggle music">🔇 Mute</button>
       <button id="toFullscreenBtn" class="btn secondary hidden">🔍 Fullscreen</button>
@@ -28,18 +47,18 @@
   </header>
 
   <!-- Music -->
-  <audio id="bgMusic" src="image/happy-birthday-368842.mp3" preload="auto" loop></audio>
+  <audio id="bgMusic" src="image/i-love-you.mp3" preload="auto" loop></audio>
   <audio id="galleryMusic" src="image/2mate (mp3cut.net).mp3" preload="auto" loop></audio>
 
   <!-- Gift Section -->
   <section id="giftSection" aria-label="Gift section">
     <img id="giftBox" src="image/box.png" alt="Gift Box" />
     <img id="giftBox" src="image/openbox.png" alt="Gift Box" />
-    <p id="clickText">Open this gift Box </p>
+    <p id="clickText">Open to see my love 💌 </p>
     <div class="stickers" aria-hidden="true">
-      <img src="image/birthday (1).png" alt="" />
-      <img src="image/OIF-removebg-preview.png" alt="" />
-      <img src="image/OIP-removebg-preview.png" alt="" />
+      <img src="image/heart-love.png" alt="" />
+      <img src="image/hend-love.png" alt="" />
+      <img src="image/rose.png" alt="" />
     </div>
   </section>
 
@@ -47,20 +66,29 @@
   <section id="messageSection" class="hidden" aria-live="polite">
     <img src="image/doll.png" alt="">
     <h2 id="typedText"></h2>
-    <p class="subline">Wishing you endless smiles, love & happiness 💖</p>
+    <p class="subline">From my heart to yours... 💌💖
+    <br>
+    Every moment with you is magic ✨
+    <br>
+    Every smile, every word, every heartbeat...
+    <br>
+    All of it led me to one question 💍
+     <br>
+    Will you be mine forever? ❤️     
+    </p>
     <div class="emojiWrap" id="emojiContainer">
-      <p>Pick  emojis that match your mood 🥰👇</p>
-      <span class="emoji">😍</span>
-      <span class="emoji">🥳</span>
-      <span class="emoji">💖</span>
-      <span class="emoji">🌸</span>
+      <p>Choose your love mood 💘👇</p>
+      <span class="emoji">❤️</span>
+      <span class="emoji">😘</span>
+      <span class="emoji">💍</span>
+      <span class="emoji">❣</span>
     </div>
   </section>
 
   <!-- 3D Carousel Gallery -->
   <section id="gallerySection" class="gallery-section" aria-label="3D photo gallery">
     <div class="gallery">
-      <img src="image/photo (1).jpg" alt="Photo 1" />
+      <img src="image/photo (1).jpg" alt="Photo " />
       <img src="image/photo (2).JPG" alt="Photo 2" />
       <img src="image/photo (3).JPG" alt="Photo 3" />
       <img src="image/photo (4).JPG" alt="Photo 4" />
@@ -69,7 +97,7 @@
       <img src="image/photo (7).JPG" alt="Photo 6" />
       <img src="image/photo (8).JPG" alt="Photo 6" />
     </div>
-    <h3 class="sectionTitle">🎉 Happy Birthday  🎉</h3>
+    <h3 class="sectionTitle">💍 Will You Be Mine? 💍</h3>
   </section>
 
   <!-- Fullscreen Gallery -->
@@ -91,7 +119,15 @@
   </section>
 
   <footer>
-    Made with 💕 for your special day.
+    <p style="max-width: 650px; margin: 1rem auto; font-size: 1.1rem; color:#444; font-style: italic; line-height: 1.8;">
+      तिम्रो आँखामा म एक संसार देख्छु,
+      जसमा म र तिमी मात्र छौं 💕
+      तिम्रो हाँसोमा जादू छ,
+      जसले मेरो सबै पीडा हराउँछ 🌹
+      शब्दले भन्न नसक्ने कुरा,
+      मेरो मुटुले बुझ्छ तिमीलाई ❤️
+    </p>
+    Made with 💖 just for you... Will you be mine forever?
   </footer>
 
   <!-- JavaScript -->

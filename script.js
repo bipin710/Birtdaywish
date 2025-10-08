@@ -1,3 +1,4 @@
+// === DOM Elements ===
 const giftBox = document.getElementById('giftBox');
 const giftSection = document.getElementById('giftSection');
 const messageSection = document.getElementById('messageSection');
@@ -16,26 +17,28 @@ const fsGrid = document.getElementById('fsGrid');
 
 let isMuted = false;
 
-// Confetti
+// === CONFETTI ===
 function shootConfetti(times = 40) {
   for (let i = 0; i < times; i++) {
     const c = document.createElement('div');
     c.className = 'confetti';
     c.style.left = Math.random() * 100 + 'vw';
     c.style.animationDuration = (3 + Math.random() * 3) + 's';
-    c.style.background = `hsl(${Math.floor(Math.random()*360)}, 90%, 60%)`;
-    c.style.transform = `translateY(0) rotate(${Math.random()*360}deg)`;
+    c.style.background = `hsl(${Math.floor(Math.random() * 360)}, 90%, 60%)`;
+    c.style.transform = `translateY(0) rotate(${Math.random() * 360}deg)`;
     document.body.appendChild(c);
     setTimeout(() => c.remove(), 7000);
   }
 }
 
+// === AUDIO SAFE PLAY ===
 function safePlay(audio) {
   audio.volume = 0.9;
   audio.muted = isMuted;
   audio.play().catch(() => {});
 }
 
+// === MUTE / UNMUTE MUSIC ===
 toggleMusicBtn.addEventListener('click', () => {
   isMuted = !isMuted;
   music.muted = isMuted;
@@ -44,24 +47,14 @@ toggleMusicBtn.addEventListener('click', () => {
   toggleMusicBtn.setAttribute('aria-pressed', String(!isMuted));
 });
 
-function askNameFlow() {
-  return Swal.fire({
-    title: '🎀 What\'s your beautiful name?',
-    input: 'text',
-    inputPlaceholder: 'Type here...',
-    confirmButtonText: "Let\'s Celebrate 🎉",
-    confirmButtonColor: '#ff66b2',
-    background: '#fff0f6',
-    inputValidator: (value) => { if (!value) return 'Please enter your name 💬'; }
-  });
-}
-
+// === TYPING EFFECT ===
 function startTyping(userName) {
   new Typed('#typedText', {
     strings: [
-      `🎂 Happy Birthday ${userName}! 🎂`,
-      '💝 Wishing You Happiness',
-      '🌸 Lots of Love 💕'
+      `💖 Dear ${userName}...`,
+      'From the moment I met you...',
+      '💌 I knew you were the one.',
+      'Will you be mine forever? 💍'
     ],
     typeSpeed: 70,
     backSpeed: 40,
@@ -70,20 +63,32 @@ function startTyping(userName) {
   });
 }
 
+// === EMOJI INTERACTION ===
 function enableEmojis(userName) {
   let emojiClicks = 0;
   emojiContainer.querySelectorAll('.emoji').forEach((emoji) => {
     emoji.addEventListener('click', () => {
       if (emoji.style.pointerEvents === 'none') return;
+
       emojiClicks++;
       emoji.style.opacity = '0.5';
       emoji.style.pointerEvents = 'none';
+
+      // When all 4 emojis clicked
       if (emojiClicks === 4) {
         setTimeout(() => {
           Swal.fire({
-            title: `💫 One more thing, ${userName}!`,
-            html: `<p style="font-size:20px;">You are truly special, and today proves it 💫🌹<br>Never stop being amazing! 💕</p>`,
-            confirmButtonText: '🌟 Aww, Thank you!',
+            title: `💫 I love you, ${userName}!`,
+            html: `
+              <p style="font-size:20px;"> 
+                कुनै साधारण दिन थियो, जब पहिलो पटक तिमीलाई देखेँ 🌸  
+                मुस्कानमा त्यस्तो जादू थियो, जसले मेरो संसारै बदल्यो...  
+                समय बित्दै गयो, हरेक कुरामा तिमी नै मेरो प्रेरणा बन्यौ 💫  
+                तिम्रो साथमा हरेक क्षण स्वर्ग जस्तै लाग्छ —  
+                अनि मेरो मनले भन्छ —  
+                <strong>“म तिमीमा हराएको छु, अब फर्किन चाहन्न।”</strong>
+              </p>`,
+            confirmButtonText: '🌟 I Love You',
             confirmButtonColor: '#ff66b2',
             background: '#fff0f6'
           }).then(() => {
@@ -98,6 +103,7 @@ function enableEmojis(userName) {
   });
 }
 
+// === FULLSCREEN GALLERY ===
 function openFullscreenGallery() {
   music.pause();
   safePlay(galleryMusic);
@@ -121,16 +127,12 @@ function closeFullscreenGallery() {
 closeFs.addEventListener('click', closeFullscreenGallery);
 toFullscreenBtn.addEventListener('click', openFullscreenGallery);
 
-// Main flow
+// === MAIN FLOW ===
 giftBox.addEventListener('click', async () => {
   shootConfetti(50);
   safePlay(music);
 
-  const { isConfirmed, value } = await askNameFlow();
-  if (!isConfirmed) return;
-
-  const userName = value.trim();
-  if (!userName) return;
+  const userName = "Dikshya Kunjeda"; // 💖 Change name here if needed
 
   giftSection.classList.add('hidden');
   messageSection.classList.remove('hidden');
@@ -139,7 +141,7 @@ giftBox.addEventListener('click', async () => {
   enableEmojis(userName);
 });
 
-// Accessibility
+// === ACCESSIBILITY SUPPORT ===
 giftBox.setAttribute('tabindex', '0');
 giftBox.addEventListener('keydown', (e) => {
   if (e.key === 'Enter' || e.key === ' ') {
@@ -148,8 +150,12 @@ giftBox.addEventListener('keydown', (e) => {
   }
 });
 
-// Preload images
+// === PRELOAD IMAGES ===
 [
   'image/photo (1).jpg', 'image/photo (2).JPG', 'image/photo (3).JPG',
-  'image/photo (4).JPG', 'image/photo (5).JPG', 'image/photo (6).JPG', 'image/photo (7).JPG', 'image/photo (8).JPG'
-].forEach(src => { const i = new Image(); i.src = src; });
+  'image/photo (4).JPG', 'image/photo (5).JPG', 'image/photo (6).JPG',
+  'image/photo (7).JPG', 'image/photo (8).JPG'
+].forEach(src => {
+  const i = new Image();
+  i.src = src;
+});
